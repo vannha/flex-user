@@ -27,6 +27,9 @@
         'fb_app_id',
         'fb_app_secret',
         'enable_facebook',
+        'tw_app_id',
+        'tw_app_secret',
+        'enable_twitter'    
 	), array(
 		esc_html__( 'Login', fsUser()->domain ),
 		esc_html__( 'Register', fsUser()->domain ),
@@ -36,6 +39,9 @@
         '',
         '',
         '',
+        '',
+        '',
+        ''
 	) );
 
 ?>
