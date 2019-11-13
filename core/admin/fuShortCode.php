@@ -59,6 +59,7 @@
 			}
 			
 			public function add_form_auth( $atts ) {
+				var_dump($atts);
 				if ( is_user_logged_in() ) {
 					return $this->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
 				}
