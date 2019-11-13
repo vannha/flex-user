@@ -93,13 +93,13 @@
                                     </div>
 								<?php endif; ?>
                             </form>
-                            <?php var_dump(get_option( 'enable_facebook_checkbox' )) ;
-                            if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
+                            <?php
+                            if ( (isset($settings['enable_facebook']) && $settings['enable_facebook'] == 'yes') || (isset($settings['enable_twitter']) && $settings['enable_twitter'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
-								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
+								<?php if ( $settings['enable_facebook'] == 'yes' ): ?>
                                     <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> Facebook</a>
 								<?php endif; ?>
-								<?php if ( $options['enable_twitter_checkbox'] == 'yes' ): ?>
+								<?php if ( $settings['enable_twitter'] == 'yes' ): ?>
                                     <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> Twitter</a>
 								<?php endif; ?>
                             </div>
