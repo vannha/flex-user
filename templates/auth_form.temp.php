@@ -86,7 +86,8 @@
                                     </div>
 								<?php endif; ?>
                             </form>
-                            <?php if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
+                            <?php var_dump($options['enable_facebook_checkbox']) ;
+                            if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
 								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
                                     <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> Facebook</a>
