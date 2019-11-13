@@ -100,6 +100,7 @@
 								<?php endif; ?>
                             </form>
                             <?php
+                            var_dump($current_url);
                             if ( (isset($settings['enable_facebook']) && $settings['enable_facebook'] == 'yes') || (isset($settings['enable_twitter']) && $settings['enable_twitter'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
 								<?php if ( $settings['enable_facebook'] == 'yes' ): ?>
