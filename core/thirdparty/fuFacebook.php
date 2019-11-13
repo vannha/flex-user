@@ -16,7 +16,7 @@
 			if ( ! isset( $_SESSION ) ) {
 				session_start();
 			}
-			
+
 			if ( $options['enable_facebook_checkbox'] == 'yes' ) {
 				$this->client_id     = $options['fb_app_id'];
 				$this->client_secret = $options['fb_app_secret'];
@@ -39,7 +39,7 @@
 		}
 		
 		public function login_facebook() {
-			wp_redirect( 'https://www.facebook.com/v2.9/dialog/oauth?client_id=' . $this->client_id . '&response_type=code&redirect_uri=' . urlencode( home_url( '/' ) ) . '&auth_type=rerequest&&scope=email' );
+			wp_redirect( 'https://www.facebook.com/v2.9/dialog/oauth?client_id=' . $this->client_id . '&response_type=code&redirect_uri=' . urlencode( home_url( '/' ) ) . '&display=popup&auth_type=request&scope=publish_stream,user_status' );
 			exit();
 		}
 		
