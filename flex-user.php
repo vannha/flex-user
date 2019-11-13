@@ -1,4 +1,4 @@
-<?php die('aaaa');
+<?php  
 	/**
 	 * Plugin Name: Flex Login
 	 * Plugin URI: http://fsflex.com/
