@@ -59,7 +59,7 @@
 			}
 			
 			public function add_form_auth( $atts ) {
-				var_dump($atts);
+
 				if ( is_user_logged_in() ) {
 					return $this->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
 				}
@@ -67,6 +67,7 @@
 					array(
 						'id' => '',
 					), $atts );
+				var_dump($atts);
 				wp_enqueue_style( 'fs-user-form.css', $this->plugin_url . 'assets/css/fs-user-form.css', array(), '', 'all' );
 				wp_enqueue_script( 'jquery.validate.js', $this->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
 				wp_register_script( 'fs-login.js', $this->plugin_url . 'assets/js/fs-login.js', array(), '', true );
