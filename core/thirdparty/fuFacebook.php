@@ -16,6 +16,7 @@
 			if ( ! isset( $_SESSION ) ) {
 				session_start();
 			}
+			var_dump($options);
 			if ( $options['enable_facebook_checkbox'] == 'yes' ) {
 				$this->client_id     = $options['fb_app_id'];
 				$this->client_secret = $options['fb_app_secret'];
