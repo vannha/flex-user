@@ -93,7 +93,7 @@
                                     </div>
 								<?php endif; ?>
                             </form>
-                            <?php var_dump($options['enable_facebook_checkbox']) ;
+                            <?php var_dump($settings) ;
                             if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
 								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
