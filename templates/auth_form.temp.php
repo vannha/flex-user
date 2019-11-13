@@ -35,7 +35,7 @@
 		esc_html__( 'Login or register', fsUser()->domain ),
         '',
         '',
-        'yes',
+        '',
 	) );
 
 ?>
