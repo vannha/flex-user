@@ -23,14 +23,21 @@
 		'register_btn',
 		'login_label',
 		'register_label',
-		'general_label'
+		'general_label',
+        'fb_app_id',
+        'fb_app_secret',
+        'enable_facebook',
 	), array(
 		esc_html__( 'Login', fsUser()->domain ),
 		esc_html__( 'Register', fsUser()->domain ),
 		esc_html__( 'Login', fsUser()->domain ),
 		esc_html__( 'Register', fsUser()->domain ),
-		esc_html__( 'Login or register', fsUser()->domain )
+		esc_html__( 'Login or register', fsUser()->domain ),
+        '',
+        '',
+        'yes',
 	) );
+
 ?>
 <aside class="widget fs-widget widget_authenticate">
     <div class="fs-link">
