@@ -9,42 +9,47 @@ function add_flex_user_shortcodes(){
         'params'   => array_merge(
             array(
                 array(
-                'type'       => 'dropdown',
-                'param_name' => 'style',
-                'heading'    => esc_html__('Style','flex-login'),
-                'value'      => array(
-                    esc_html__('Popup','flex-login')          => 'fs-popup',
-                    esc_html__('Dropdown','flex-login')       => 'fs-dropdown'
-                ),
-                'std'        => 'fs-popup'
+                    'type'       => 'dropdown',
+                    'param_name' => 'style',
+                    'heading'    => esc_html__('Style','flex-login'),
+                    'value'      => array(
+                        esc_html__('Popup','flex-login')          => 'fs-popup',
+                        esc_html__('Dropdown','flex-login')       => 'fs-dropdown'
+                    ),
+                    'std'        => 'fs-popup'
+                )
             ),
             flex_user_sc_params(),
             array(
-                'type'          => 'textarea',
-                'heading'       => esc_html__('Login Description','theclick'),
-                'param_name'    => 'login_description',
-                'value'      => '',
-                'holder'     => 'div',
-                'dependency' => array(
-                    'element' => 'type',
-                    'value'   => array('both','login')
+                array(
+                    'type'          => 'textarea',
+                    'heading'       => esc_html__('Login Description','theclick'),
+                    'param_name'    => 'login_description',
+                    'value'      => '',
+                    'holder'     => 'div',
+                    'dependency' => array(
+                        'element' => 'type',
+                        'value'   => array('both','login')
+                    )
                 )
             ),
             flex_user_sc_params_reg(),
             array(
-                'type'       => 'el_id',
-                'heading'    => esc_html__('Element ID','theclick'),
-                'param_name' => 'el_id',
-                'settings' => array(
-                    'auto_generate' => true,
+                array(
+                    'type'       => 'el_id',
+                    'heading'    => esc_html__('Element ID','theclick'),
+                    'param_name' => 'el_id',
+                    'settings' => array(
+                        'auto_generate' => true,
+                    ),
+                    'description'   => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'theclick' ), '//w3schools.com/tags/att_global_id.asp' ),
                 ),
-                'description'   => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'theclick' ), '//w3schools.com/tags/att_global_id.asp' ),
+                array(
+                    'type'             => 'textfield',
+                    'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
+                    'param_name'       => 'el_class',
+                )
             ),
-            array(
-                'type'             => 'textfield',
-                'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
-                'param_name'       => 'el_class',
-            )
         )
     ));
     vc_map(array(
