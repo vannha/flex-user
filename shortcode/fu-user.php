@@ -126,7 +126,7 @@ function add_flex_user_shortcodes(){
 add_shortcode( 'fu_auth', 'fu_auth_func' );
 function fu_auth_func( $atts ) {
     extract( shortcode_atts( array(
-        'id'                   => 'fl-user',
+        'el_id'                => rand(4,1000),
         'style'                => 'fs-popup',    
         'type'                 => 'both',
         'num_link'             => '2',    
@@ -135,7 +135,8 @@ function fu_auth_func( $atts ) {
         'register_description' => '',   
         'el_class'             => ''
     ), $atts ) );
-   
+    
+    $atts['id'] = $atts['el_id']
     if ( is_user_logged_in() ) {
         return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
     }
