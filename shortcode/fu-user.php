@@ -122,8 +122,8 @@ function flex_user_sc_params(){
                     'element' => 'num_link',
                     'value'   => '1'
                 )
-            )
-        )
+            ),
+        ),
     }
 }
 function flex_user_sc_params_reg(){
@@ -140,8 +140,8 @@ function flex_user_sc_params_reg(){
                     'element' => 'type',
                     'value'   => array('both','register')
                 )
-            )
-        )
+            ),
+        ),
     }
 }
 add_shortcode( 'fu_auth', 'fu_auth_func' );
