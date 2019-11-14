@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
         $(this).validate({
             rules: {
                 fs_password_re: {
-                    equalTo: '[name="fs_password"]'
+                    equalTo: $(this).find('[name="fs_password"]')
                 }
             }
         });
