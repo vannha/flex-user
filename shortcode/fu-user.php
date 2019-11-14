@@ -123,7 +123,7 @@ function flex_user_sc_params(){
                     'value'   => '1'
                 )
             ),
-        ),
+        )
     }
 }
 function flex_user_sc_params_reg(){
@@ -141,7 +141,7 @@ function flex_user_sc_params_reg(){
                     'value'   => array('both','register')
                 )
             ),
-        ),
+        )
     }
 }
 add_shortcode( 'fu_auth', 'fu_auth_func' );
