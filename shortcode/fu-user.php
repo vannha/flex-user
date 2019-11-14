@@ -82,7 +82,7 @@ function add_flex_user_shortcodes(){
 function flex_user_sc_params(){
     $can_register = get_option( 'users_can_register' );
     if ( $can_register ){
-        array(
+        return array(
             array(
                 'type'       => 'dropdown',
                 'param_name' => 'type',
@@ -123,13 +123,13 @@ function flex_user_sc_params(){
                     'value'   => '1'
                 )
             ),
-        ),
+        );
     }
 }
 function flex_user_sc_params_reg(){
     $can_register = get_option( 'users_can_register' );
     if ( $can_register ){
-        array(
+        return array(
             array(
                 'type'          => 'textarea',
                 'heading'       => esc_html__('Register Description','theclick'),
@@ -141,7 +141,7 @@ function flex_user_sc_params_reg(){
                     'value'   => array('both','register')
                 )
             ),
-        ),
+        );
     }
 }
 add_shortcode( 'fu_auth', 'fu_auth_func' );
