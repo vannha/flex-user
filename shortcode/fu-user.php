@@ -29,6 +29,20 @@ function add_flex_user_shortcodes(){
                 'std'        => 'both'
             ),
             array(
+                'type'       => 'dropdown',
+                'param_name' => 'num_link',
+                'heading'    => esc_html__('Number link','flex-login'),
+                'value'      => array(
+                    esc_html__('One','flex-login')          => '1',
+                    esc_html__('Two','flex-login')    => '2'
+                ),
+                'std'        => '2',
+                'dependency' => array(
+                    'element' => 'type',
+                    'value'   => 'both'
+                )
+            ),
+            array(
                 'type'             => 'textfield',
                 'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
                 'param_name'       => 'el_class',
