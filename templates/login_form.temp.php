@@ -52,11 +52,6 @@
             <div class="fs-action">
                 <button type="submit"><?php echo esc_attr( $settings['login_btn'] ) ?></button>
             </div>
-			<?php if ( $can_register ): ?>
-                <div class="fs-singin-up">
-                    <p><?php esc_html_e('Don\'t have an account?',fsUser()->domain)?> <a href="#" class="fs-register"><?php esc_html_e('Create an account',fsUser()->domain)?></a></p>
-                </div>
-			<?php endif; ?>
         </form>
         <?php
        
