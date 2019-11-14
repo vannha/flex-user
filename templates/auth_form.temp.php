@@ -23,26 +23,21 @@
 		'register_btn',
 		'login_label',
 		'register_label',
-		'general_label',
-        'fb_app_id',
-        'fb_app_secret',
-        'enable_facebook',
-        'tw_app_id',
-        'tw_app_secret',
-        'enable_twitter'    
+		'general_label' 
 	), array(
 		esc_html__( 'Login', fsUser()->domain ),
 		esc_html__( 'Register', fsUser()->domain ),
 		esc_html__( 'Login', fsUser()->domain ),
 		esc_html__( 'Register', fsUser()->domain ),
-		esc_html__( 'Login or register', fsUser()->domain ),
-        '',
-        '',
-        '',
-        '',
+		esc_html__( 'Login or register', fsUser()->domain )
+	) );
+    $options = fs_get_option( array(
+        'enable_facebook_checkbox',
+        'enable_twitter_checkbox'
+    ), array(
         '',
         ''
-	) );
+    ) );
 
 ?>
 <aside class="widget fs-widget widget_authenticate">
@@ -101,12 +96,12 @@
                             </form>
                             <?php
                            
-                            if ( (isset($settings['enable_facebook']) && $settings['enable_facebook'] == 'yes') || (isset($settings['enable_twitter']) && $settings['enable_twitter'] == 'yes' )): ?>
+                            if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter']) && $options['enable_twitter'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
-								<?php if ( $settings['enable_facebook'] == 'yes' ): ?>
+								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
                                     <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> Facebook</a>
 								<?php endif; ?>
-								<?php if ( $settings['enable_twitter'] == 'yes' ): ?>
+								<?php if ( $options['enable_twitter_checkbox'] == 'yes' ): ?>
                                     <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> Twitter</a>
 								<?php endif; ?>
                             </div>
