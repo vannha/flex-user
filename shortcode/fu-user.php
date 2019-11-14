@@ -80,6 +80,15 @@ function add_flex_user_shortcodes(){
                 )
             ),
             array(
+                'type'       => 'el_id',
+                'heading'    => esc_html__('Element ID','theclick'),
+                'param_name' => 'el_id',
+                'settings' => array(
+                    'auto_generate' => true,
+                ),
+                'description'   => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'theclick' ), '//w3schools.com/tags/att_global_id.asp' ),
+            ),
+            array(
                 'type'             => 'textfield',
                 'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
                 'param_name'       => 'el_class',
@@ -117,7 +126,7 @@ function add_flex_user_shortcodes(){
 add_shortcode( 'fu_auth', 'fu_auth_func' );
 function fu_auth_func( $atts ) {
     extract( shortcode_atts( array(
-        'id'                    => mktime(),
+        'id'                   => 'fl-user',
         'style'                => 'fs-popup',    
         'type'                 => 'both',
         'num_link'             => '2',    
