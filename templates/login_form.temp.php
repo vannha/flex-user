@@ -8,13 +8,13 @@
 	$refer         = isset( $_GET['redirect'] ) ? $_GET['redirect'] : '';
 	$site_url      = get_site_url();
 	$current_url   = ( ! empty( $refer ) ) ? $refer : set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
-	$atts          = wp_parse_args( $atts, array(
+	/*$atts          = wp_parse_args( $atts, array(
 		'title'    => esc_html__( 'Login', fsUser()->domain ),
 		'style'    => '',
 		'type'     => 'login',
 		'num_link' => '1',
 		'active'   => 'login'
-	) );
+	) );*/
 	$can_register  = get_option( 'users_can_register' );
 	$settings      = fs_get_option( array(
 		'login_btn',
