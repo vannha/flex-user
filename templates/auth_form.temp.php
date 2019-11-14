@@ -84,13 +84,12 @@
                                     <input type="checkbox" name="remember" value="remember"><?php echo esc_html__('Remember me',fsUser()->domain)?>
                                     <a href="<?php echo wp_lostpassword_url(); ?>"><?php echo esc_html__('Forgotten your password?',fsUser()->domain)?></a>
                                 </div>
-                                <div class="fs-action fs-center">
+                                <div class="fs-action">
                                     <button type="submit"><?php echo esc_attr( $settings['login_btn'] ) ?></button>
                                 </div>
 								<?php if ( $can_register ): ?>
-                                    <div class="fs-center">
-                                        <p>Don't have an account? <a href="#" class="fs-register"><?php echo esc_html__('Create an account',fsUser()->domain)?></a>
-                                        </p>
+                                    <div class="fs-singin-up">
+                                        <p><?php esc_html_e('Don\'t have an account?',fsUser()->domain)?> <a href="#" class="fs-register"><?php esc_html_e('Create an account',fsUser()->domain)?></a></p>
                                     </div>
 								<?php endif; ?>
                             </form>
@@ -99,10 +98,10 @@
                             if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter']) && $options['enable_twitter'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
 								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
-                                    <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> Facebook</a>
+                                    <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> <?php esc_html_e('Facebook',fsUser()->domain)?></a>
 								<?php endif; ?>
 								<?php if ( $options['enable_twitter_checkbox'] == 'yes' ): ?>
-                                    <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> Twitter</a>
+                                    <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> <?php esc_html_e('Twitter',fsUser()->domain)?></a>
 								<?php endif; ?>
                             </div>
                             <?php endif; ?>
@@ -139,20 +138,20 @@
                                 <div>
                                     <input type="password" name="fs_password_re" class="required fs-full" placeholder="Confirm Password..." value="">
                                 </div>
-                                <div class="fs-action fs-center">
+                                <div class="fs-action">
                                     <button type="submit"><?php echo esc_attr( $settings['register_btn'] ) ?></button>
                                 </div>
-                                <div class="fs-center">
-                                    <p>Already have an account? <a href="#" class="fs-login">Sign in now</a></p>
+                                <div class="fs-singin-up">
+                                    <p><?php esc_html_e('Already have an account?',fsUser()->domain)?> <a href="#" class="fs-login"><?php esc_html_e('Sign in now',fsUser()->domain)?></a></p>
                                 </div>
                             </form>
                             <?php if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
 								<?php if ( $options['enable_facebook_checkbox'] == 'yes' ): ?>
-                                    <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> Facebook</a>
+                                    <a class="button btn-facebook" href="<?php echo $site_url ?>?login=facebook&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-facebook"></i> <?php esc_html_e('Facebook',fsUser()->domain)?></a>
 								<?php endif; ?>
 								<?php if ( $options['enable_twitter_checkbox'] == 'yes' ): ?>
-                                    <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> Twitter</a>
+                                    <a class="button btn-twitter" href="<?php echo $site_url ?>?login=twitter&fs-redirect=<?php echo urlencode( $current_url ) ?>"><i class="ti ti-twitter"></i> <?php esc_html_e('Twitter',fsUser()->domain)?></a>
 								<?php endif; ?>
                             </div>
                             <?php endif; ?>
