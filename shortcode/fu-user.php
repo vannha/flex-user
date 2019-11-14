@@ -136,7 +136,7 @@ function fu_auth_func( $atts ) {
         'el_class'             => ''
     ), $atts ) );
     
-    $atts['id'] = $atts['el_id']
+    $atts['id'] = $el_id;
     if ( is_user_logged_in() ) {
         return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
     }
