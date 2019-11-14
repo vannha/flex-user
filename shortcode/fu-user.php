@@ -43,6 +43,43 @@ function add_flex_user_shortcodes(){
                 )
             ),
             array(
+                'type'       => 'dropdown',
+                'param_name' => 'active',
+                'heading'    => esc_html__('Active Form','flex-login'),
+                'value'      => array(
+                    esc_html__('Both login and register','flex-login') => 'all',
+                    esc_html__('Only login','flex-login')              => 'login',
+                    esc_html__('Only register','flex-login')           => 'register'
+                ),
+                'std'        => 'login',
+                'dependency' => array(
+                    'element' => 'num_link',
+                    'value'   => '1'
+                )
+            ),
+            array(
+                'type'          => 'textarea',
+                'heading'       => esc_html__('Login Description','theclick'),
+                'param_name'    => 'login_description',
+                'value'      => '',
+                'holder'     => 'div',
+                'dependency' => array(
+                    'element' => 'type',
+                    'value'   => array('both','login')
+                )
+            ),
+            array(
+                'type'          => 'textarea',
+                'heading'       => esc_html__('Register Description','theclick'),
+                'param_name'    => 'register_description',
+                'value'      => '',
+                'holder'     => 'div',
+                'dependency' => array(
+                    'element' => 'type',
+                    'value'   => array('both','register')
+                )
+            ),
+            array(
                 'type'             => 'textfield',
                 'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
                 'param_name'       => 'el_class',
