@@ -39,6 +39,7 @@
         ''
     ) );
 
+    var_dump($atts['type']);
 ?>
 <aside class="widget fs-widget widget_authenticate">
     <div class="fs-link">
