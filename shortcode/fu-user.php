@@ -49,7 +49,7 @@ function add_flex_user_shortcodes(){
                     'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
                     'param_name'       => 'el_class',
                 )
-            ),
+            )
         )
     ));
     vc_map(array(
