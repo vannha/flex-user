@@ -41,6 +41,7 @@
 				$this->requireFolder( 'core.api' );
 				$this->requireFolder( 'core' );
 				$this->requireFolder( 'core.admin' );
+				$this->requireFolder( 'shortcode' );
 				$this->requireFolder( 'core.thirdparty' );
 				if ( ! function_exists( 'get_plugins' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
