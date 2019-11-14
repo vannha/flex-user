@@ -74,19 +74,19 @@
 								<?php wp_get_referer() ?>
                                 <div class="fs-login-notice"></div>
                                 <input type="hidden" name="refer" value="<?php echo esc_url( $refer ) ?>">
-                                <div>
+                                <p>
                                     <input type="text" name="username" class="required fs-full" placeholder="User name or email ..." value="">
-                                </div>
-                                <div>
+                                </p>
+                                <p>
                                     <input type="password" name="password" class="required fs-full" placeholder="Password..." value="">
-                                </div>
-                                <div>
+                                </p>
+                                <p>
                                     <input type="checkbox" name="remember" value="remember"><?php echo esc_html__('Remember me',fsUser()->domain)?>
                                     <a href="<?php echo wp_lostpassword_url(); ?>"><?php echo esc_html__('Forgotten your password?',fsUser()->domain)?></a>
-                                </div>
-                                <div class="fs-action">
+                                </p>
+                                <p class="fs-action">
                                     <button type="submit"><?php echo esc_attr( $settings['login_btn'] ) ?></button>
-                                </div>
+                                </p>
 								<?php if ( $can_register ): ?>
                                     <div class="fs-singin-up">
                                         <p><?php esc_html_e('Don\'t have an account?',fsUser()->domain)?> <a href="#" class="fs-register"><?php esc_html_e('Create an account',fsUser()->domain)?></a></p>
@@ -141,9 +141,9 @@
                                 <p class="fs-action">
                                     <button type="submit"><?php echo esc_attr( $settings['register_btn'] ) ?></button>
                                 </p>
-                                <p class="fs-singin-up">
+                                <div class="fs-singin-up">
                                     <p><?php esc_html_e('Already have an account?',fsUser()->domain)?> <a href="#" class="fs-login"><?php esc_html_e('Sign in now',fsUser()->domain)?></a></p>
-                                </p>
+                                </div>
                             </form>
                             <?php if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">

@@ -40,27 +40,27 @@
 				<?php wp_get_referer() ?>
                 <input type="hidden" name="refer" value="<?php echo esc_url( $refer ) ?>">
                 <div class="fs-register-notice"></div>
-                <div>
+                <p>
                     <input type="text" class="required fs-full" name="fs_first_name" placeholder="First Name ..." value="">
-                </div>
-                <div>
+                </p>
+                <p>
                     <input type="text" class="required fs-full" name="fs_last_name" placeholder="Last Name ..." value="">
-                </div>
-                <div>
+                </p>
+                <p>
                     <input type="email" class="required fs-full" name="fs_email" placeholder="Email ..." value="">
-                </div>
-                <div>
+                </p>
+                <p>
                     <input type="text" class="required fs-full" name="fs_username" placeholder="User name ..." value="">
-                </div>
-                <div>
+                </p>
+                <p>
                     <input type="password" class="required fs-full" name="fs_password" placeholder="Password..." value="">
-                </div>
-                <div>
+                </p>
+                <p>
                     <input type="password" name="fs_password_re" class="required fs-full" placeholder="Confirm Password..." value="">
-                </div>
-                <div class="fs-action">
+                </p>
+                <p class="fs-action">
                     <button type="submit"><?php echo esc_attr( $settings['register_btn'] ) ?></button>
-                </div>
+                </p>
             </form>
             <?php if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
             <div class="fs-thirdparty">
