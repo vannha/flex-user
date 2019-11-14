@@ -46,7 +46,7 @@
                 <?php if ( ( ! $only_register && ! $only_login && $atts['type'] == 'both' && $atts['num_link'] == '1' ) ): ?>
                     <a href="#fs-general-form-<?php echo esc_attr( $atts['id'] ) ?>" data-active="<?php echo esc_attr( $atts['active'] ) ?>"><?php echo esc_attr( $settings['general_label'] ) ?></a>
                 <?php elseif ( ( $atts['type'] == 'both' && $atts['num_link'] == '2' ) ): ?>
-                    <a href="#fs-login-form-<?php echo esc_attr( $atts['id'] ) ?>" data-active="login"><?php echo esc_attr( $settings['login_label'] ) ?></a> /
+                    <a href="#fs-login-form-<?php echo esc_attr( $atts['id'] ) ?>" data-active="login"><?php echo esc_attr( $settings['login_label'] ) ?></a> 
                     <a href="#fs-register-form-<?php echo esc_attr( $atts['id'] ) ?>" data-active="register"><?php echo esc_attr( $settings['register_label'] ) ?></a>
                 <?php elseif ( $only_register ): ?>
                     <a href="#fs-register-form-<?php echo esc_attr( $atts['id'] ) ?>" data-active="register"><?php echo esc_attr( $settings['register_label'] ) ?></a>
