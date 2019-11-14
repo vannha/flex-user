@@ -6,8 +6,9 @@ function add_flex_user_shortcodes(){
         'base'     => 'fu_auth',
         'icon'     => 'icon-wpb-ui-icon',
         'category' => esc_html__('Flex User', 'flex-login'),
-        'params'   => array(
+        'params'   => array_merge(
             array(
+                array(
                 'type'       => 'dropdown',
                 'param_name' => 'style',
                 'heading'    => esc_html__('Style','flex-login'),
@@ -17,46 +18,7 @@ function add_flex_user_shortcodes(){
                 ),
                 'std'        => 'fs-popup'
             ),
-            array(
-                'type'       => 'dropdown',
-                'param_name' => 'type',
-                'heading'    => esc_html__('Type','flex-login'),
-                'value'      => array(
-                    esc_html__('Both login and register','flex-login')          => 'both',
-                    esc_html__('Only login','flex-login')    => 'login',
-                    esc_html__('Only register','flex-login')   => 'register'
-                ),
-                'std'        => 'both'
-            ),
-            array(
-                'type'       => 'dropdown',
-                'param_name' => 'num_link',
-                'heading'    => esc_html__('Number link','flex-login'),
-                'value'      => array(
-                    esc_html__('One','flex-login')          => '1',
-                    esc_html__('Two','flex-login')    => '2'
-                ),
-                'std'        => '2',
-                'dependency' => array(
-                    'element' => 'type',
-                    'value'   => 'both'
-                )
-            ),
-            array(
-                'type'       => 'dropdown',
-                'param_name' => 'active',
-                'heading'    => esc_html__('Active Form','flex-login'),
-                'value'      => array(
-                    esc_html__('Both login and register','flex-login') => 'all',
-                    esc_html__('Only login','flex-login')              => 'login',
-                    esc_html__('Only register','flex-login')           => 'register'
-                ),
-                'std'        => 'login',
-                'dependency' => array(
-                    'element' => 'num_link',
-                    'value'   => '1'
-                )
-            ),
+            flex_user_sc_params(),
             array(
                 'type'          => 'textarea',
                 'heading'       => esc_html__('Login Description','theclick'),
@@ -68,17 +30,7 @@ function add_flex_user_shortcodes(){
                     'value'   => array('both','login')
                 )
             ),
-            array(
-                'type'          => 'textarea',
-                'heading'       => esc_html__('Register Description','theclick'),
-                'param_name'    => 'register_description',
-                'value'      => '',
-                'holder'     => 'div',
-                'dependency' => array(
-                    'element' => 'type',
-                    'value'   => array('both','register')
-                )
-            ),
+            flex_user_sc_params_reg(),
             array(
                 'type'       => 'el_id',
                 'heading'    => esc_html__('Element ID','theclick'),
@@ -122,7 +74,71 @@ function add_flex_user_shortcodes(){
         )
     ));
 }
-
+function flex_user_sc_params(){
+    $can_register = get_option( 'users_can_register' );
+    if ( $can_register ){
+        return array(
+            array(
+                'type'       => 'dropdown',
+                'param_name' => 'type',
+                'heading'    => esc_html__('Type','flex-login'),
+                'value'      => array(
+                    esc_html__('Both login and register','flex-login')          => 'both',
+                    esc_html__('Only login','flex-login')    => 'login',
+                    esc_html__('Only register','flex-login')   => 'register'
+                ),
+                'std'        => 'both'
+            ),
+            array(
+                'type'       => 'dropdown',
+                'param_name' => 'num_link',
+                'heading'    => esc_html__('Number link','flex-login'),
+                'value'      => array(
+                    esc_html__('One','flex-login')          => '1',
+                    esc_html__('Two','flex-login')    => '2'
+                ),
+                'std'        => '2',
+                'dependency' => array(
+                    'element' => 'type',
+                    'value'   => 'both'
+                )
+            ),
+            array(
+                'type'       => 'dropdown',
+                'param_name' => 'active',
+                'heading'    => esc_html__('Active Form','flex-login'),
+                'value'      => array(
+                    esc_html__('Both login and register','flex-login') => 'all',
+                    esc_html__('Only login','flex-login')              => 'login',
+                    esc_html__('Only register','flex-login')           => 'register'
+                ),
+                'std'        => 'login',
+                'dependency' => array(
+                    'element' => 'num_link',
+                    'value'   => '1'
+                )
+            )
+        )
+    }
+}
+function flex_user_sc_params_reg(){
+    $can_register = get_option( 'users_can_register' );
+    if ( $can_register ){
+        return array(
+            array(
+                'type'          => 'textarea',
+                'heading'       => esc_html__('Register Description','theclick'),
+                'param_name'    => 'register_description',
+                'value'      => '',
+                'holder'     => 'div',
+                'dependency' => array(
+                    'element' => 'type',
+                    'value'   => array('both','register')
+                )
+            )
+        )
+    }
+}
 add_shortcode( 'fu_auth', 'fu_auth_func' );
 function fu_auth_func( $atts ) {
     extract( shortcode_atts( array(
