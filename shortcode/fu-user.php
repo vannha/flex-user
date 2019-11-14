@@ -17,7 +17,7 @@ function add_flex_user_shortcodes(){
                         esc_html__('Dropdown','flex-login')       => 'fs-dropdown'
                     ),
                     'std'        => 'fs-popup'
-                )
+                ),
             ),
             flex_user_sc_params(),
             array(
@@ -31,7 +31,7 @@ function add_flex_user_shortcodes(){
                         'element' => 'type',
                         'value'   => array('both','login')
                     )
-                )
+                ),
             ),
             flex_user_sc_params_reg(),
             array(
