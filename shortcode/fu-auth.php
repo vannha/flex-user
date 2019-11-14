@@ -13,7 +13,7 @@ function fu_auth_func( $atts ) {
         array(
             'id' => '',
         ), $atts );
-    
+
     wp_enqueue_style( 'fs-user-form.css', fsUser()->plugin_url . 'assets/css/fs-user-form.css', array(), '', 'all' );
     wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
     wp_register_script( 'fs-login.js', fsUser()->plugin_url . 'assets/js/fs-login.js', array(), '', true );
@@ -36,6 +36,32 @@ function add_flex_user_shortcodes(){
     vc_map(array(
         'name'     => esc_html__('Flex Login Register', 'flex-login'),
         'base'     => 'fu_auth',
+        'icon'     => 'icon-wpb-ui-icon',
+        'category' => esc_html__('Flex User', 'flex-login'),
+        'params'   => array(
+            array(
+                'type'             => 'textfield',
+                'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
+                'param_name'       => 'el_class',
+            )
+        )
+    ));
+    vc_map(array(
+        'name'     => esc_html__('Flex Login', 'flex-login'),
+        'base'     => 'fu_login',
+        'icon'     => 'icon-wpb-ui-icon',
+        'category' => esc_html__('Flex User', 'flex-login'),
+        'params'   => array(
+            array(
+                'type'             => 'textfield',
+                'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
+                'param_name'       => 'el_class',
+            )
+        )
+    ));
+    vc_map(array(
+        'name'     => esc_html__('Flex Register', 'flex-login'),
+        'base'     => 'fu_register',
         'icon'     => 'icon-wpb-ui-icon',
         'category' => esc_html__('Flex User', 'flex-login'),
         'params'   => array(
