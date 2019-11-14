@@ -40,7 +40,7 @@
     ) );
  
 ?>
-<aside class="widget fs-widget widget_authenticate">
+<div class="fs-widget flex_authenticate">
     <div class="fs-link">
             <span>
                 <?php if ( ( ! $only_register && ! $only_login && $atts['type'] == 'both' && $atts['num_link'] == '1' ) ): ?>
@@ -165,4 +165,4 @@
             </div>
         </div>
     </div>
-</aside>
+</div>

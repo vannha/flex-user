@@ -11,6 +11,6 @@
 		'logout_text' => esc_html__( 'Logout', fsUser()->domain )
 	) );
 ?>
-<aside class="widget widget_logout">
+<div class="flex_logout">
     <a href="<?php echo wp_logout_url($current_url) ?>"><?php echo esc_attr( $atts['logout_text'] ) ?></a>
-</aside>
+</div>
