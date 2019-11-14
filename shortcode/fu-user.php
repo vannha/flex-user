@@ -124,6 +124,8 @@ function flex_user_sc_params(){
                 )
             ),
         );
+    }else{
+        return array();
     }
 }
 function flex_user_sc_params_reg(){
@@ -142,6 +144,8 @@ function flex_user_sc_params_reg(){
                 )
             ),
         );
+    }else{
+        return array();
     }
 }
 add_shortcode( 'fu_auth', 'fu_auth_func' );
