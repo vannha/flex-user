@@ -12,7 +12,7 @@
 		'title'    => esc_html__( 'Login Register', fsUser()->domain ),
 		'style'    => 'fs-popup',
 		'type'     => 'both',
-		'num_link' => '1',
+		'num_link' => '2',
 		'active'   => 'login'
 	) );
 	$can_register  = get_option( 'users_can_register' );
@@ -38,8 +38,7 @@
         '',
         ''
     ) );
-
-    var_dump($atts['num_link']);
+ 
 ?>
 <aside class="widget fs-widget widget_authenticate">
     <div class="fs-link">
