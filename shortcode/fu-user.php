@@ -117,17 +117,23 @@ function add_flex_user_shortcodes(){
 add_shortcode( 'fu_auth', 'fu_auth_func' );
 function fu_auth_func( $atts ) {
     extract( shortcode_atts( array(
-    'el_class' => 'something',
-    'color' => '#FFF'
+        'id'                    => mktime(),
+        'style'                => 'fs-popup',    
+        'type'                 => 'both',
+        'num_link'             => '2',    
+        'active'               => 'login',
+        'login_description'    => '',    
+        'register_description' => '',   
+        'el_class'             => ''
     ), $atts ) );
    
     if ( is_user_logged_in() ) {
         return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
     }
-    $atts = shortcode_atts(
+    /*$atts = shortcode_atts(
         array(
             'id' => '',
-        ), $atts );
+        ), $atts );*/
 
     wp_enqueue_style( 'fs-user-form.css', fsUser()->plugin_url . 'assets/css/fs-user-form.css', array(), '', 'all' );
     wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
