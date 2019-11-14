@@ -8,6 +8,27 @@ function add_flex_user_shortcodes(){
         'category' => esc_html__('Flex User', 'flex-login'),
         'params'   => array(
             array(
+                'type'       => 'dropdown',
+                'param_name' => 'style',
+                'heading'    => esc_html__('Style','flex-login'),
+                'value'      => array(
+                    esc_html__('Popup','flex-login')          => 'fs-popup',
+                    esc_html__('Dropdown','flex-login')       => 'fs-dropdown'
+                ),
+                'std'        => 'fs-popup'
+            ),
+            array(
+                'type'       => 'dropdown',
+                'param_name' => 'type',
+                'heading'    => esc_html__('Type','flex-login'),
+                'value'      => array(
+                    esc_html__('Both login and register','flex-login')          => 'both',
+                    esc_html__('Only login','flex-login')    => 'login',
+                    esc_html__('Only register','flex-login')   => 'register'
+                ),
+                'std'        => 'both'
+            ),
+            array(
                 'type'             => 'textfield',
                 'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
                 'param_name'       => 'el_class',
