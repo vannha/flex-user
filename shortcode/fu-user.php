@@ -208,16 +208,16 @@ function fu_auth_func( $atts ) {
 add_shortcode( 'fu_login', 'fu_login_func' );
 function fu_login_func( $atts ) {
     extract( shortcode_atts( array(
-    'el_class' => '',
+        'el_id'    => rand(4,1000),
+        'el_class' => '',
     ), $atts ) );
-   
+
+    $atts['id'] = $el_id;
+
     if ( is_user_logged_in() ) {
         return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
     }
-    $atts = shortcode_atts(
-        array(
-            'id' => '',
-        ), $atts );
+     
     wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
     wp_register_script( 'fs-login.js', fsUser()->plugin_url . 'assets/js/fs-login.js', array(), '', true );
     wp_localize_script( 'fs-login.js', 'fs_login', array(
@@ -234,19 +234,16 @@ if ( $can_register ){
     add_shortcode( 'fu_register', 'fu_register_func' );
     function fu_register_func( $atts ) {
         extract( shortcode_atts( array(
-        'el_class' => 'something',
-        'color' => '#FFF'
+            'el_id'    => rand(4,1000),
+            'el_class' => ''
         ), $atts ) );
-       
-        if ( is_user_logged_in() ) {
 
+        $atts['id'] = $el_id;
+
+        if ( is_user_logged_in() ) {
             return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
-            
         }
-        $atts = shortcode_atts(
-            array(
-                'id' => '',
-            ), $atts );
+        
         wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
         wp_enqueue_script( 'fs-register.js', fsUser()->plugin_url . 'assets/js/fs-register.js', array(), '', true );
         wp_localize_script( 'fs-register.js', 'fs_register', array(
