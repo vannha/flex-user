@@ -59,18 +59,14 @@ function add_flex_user_shortcodes(){
         'category' => esc_html__('Flex User', 'flex-login'),
         'params'   => array(
             array(
-                'type'             => 'textfield',
-                'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
-                'param_name'       => 'el_class',
-            )
-        )
-    ));
-    vc_map(array(
-        'name'     => esc_html__('Flex Register', 'flex-login'),
-        'base'     => 'fu_register',
-        'icon'     => 'icon-wpb-ui-icon',
-        'category' => esc_html__('Flex User', 'flex-login'),
-        'params'   => array(
+                'type'       => 'el_id',
+                'heading'    => esc_html__('Element ID','theclick'),
+                'param_name' => 'el_id',
+                'settings' => array(
+                    'auto_generate' => true,
+                ),
+                'description'   => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'theclick' ), '//w3schools.com/tags/att_global_id.asp' ),
+            ),
             array(
                 'type'             => 'textfield',
                 'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
@@ -78,6 +74,31 @@ function add_flex_user_shortcodes(){
             )
         )
     ));
+    $can_register = get_option( 'users_can_register' );
+    if ( $can_register ){
+        vc_map(array(
+            'name'     => esc_html__('Flex Register', 'flex-login'),
+            'base'     => 'fu_register',
+            'icon'     => 'icon-wpb-ui-icon',
+            'category' => esc_html__('Flex User', 'flex-login'),
+            'params'   => array(
+                array(
+                    'type'       => 'el_id',
+                    'heading'    => esc_html__('Element ID','theclick'),
+                    'param_name' => 'el_id',
+                    'settings' => array(
+                        'auto_generate' => true,
+                    ),
+                    'description'   => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'theclick' ), '//w3schools.com/tags/att_global_id.asp' ),
+                ),
+                array(
+                    'type'             => 'textfield',
+                    'heading'          => esc_html__( 'Extra class name', 'flex-login' ),
+                    'param_name'       => 'el_class',
+                )
+            )
+        ));
+    }
 }
 function flex_user_sc_params(){
     $can_register = get_option( 'users_can_register' );
@@ -148,6 +169,7 @@ function flex_user_sc_params_reg(){
         return array();
     }
 }
+
 add_shortcode( 'fu_auth', 'fu_auth_func' );
 function fu_auth_func( $atts ) {
     extract( shortcode_atts( array(
@@ -165,11 +187,7 @@ function fu_auth_func( $atts ) {
     if ( is_user_logged_in() ) {
         return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
     }
-    /*$atts = shortcode_atts(
-        array(
-            'id' => '',
-        ), $atts );*/
-
+      
     wp_enqueue_style( 'fs-user-form.css', fsUser()->plugin_url . 'assets/css/fs-user-form.css', array(), '', 'all' );
     wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
     wp_register_script( 'fs-login.js', fsUser()->plugin_url . 'assets/js/fs-login.js', array(), '', true );
@@ -186,11 +204,11 @@ function fu_auth_func( $atts ) {
     
     return fsUser()->get_template_file__( 'auth_form', array( 'atts' => $atts ), '', 'flex-login' );
 }
+
 add_shortcode( 'fu_login', 'fu_login_func' );
 function fu_login_func( $atts ) {
     extract( shortcode_atts( array(
-    'el_class' => 'something',
-    'color' => '#FFF'
+    'el_class' => '',
     ), $atts ) );
    
     if ( is_user_logged_in() ) {
@@ -210,32 +228,35 @@ function fu_login_func( $atts ) {
     
     return fsUser()->get_template_file__( 'login_form', array( 'atts' => $atts ), '', 'flex-login' );
 }
-add_shortcode( 'fu_register', 'fu_register_func' );
-function fu_register_func( $atts ) {
-    extract( shortcode_atts( array(
-    'el_class' => 'something',
-    'color' => '#FFF'
-    ), $atts ) );
-   
-    if ( is_user_logged_in() ) {
 
-        return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
+$can_register = get_option( 'users_can_register' );
+if ( $can_register ){
+    add_shortcode( 'fu_register', 'fu_register_func' );
+    function fu_register_func( $atts ) {
+        extract( shortcode_atts( array(
+        'el_class' => 'something',
+        'color' => '#FFF'
+        ), $atts ) );
+       
+        if ( is_user_logged_in() ) {
+
+            return fsUser()->get_template_file__( 'logout', array( 'atts' => $atts ), '', 'flex-login' );
+            
+        }
+        $atts = shortcode_atts(
+            array(
+                'id' => '',
+            ), $atts );
+        wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
+        wp_enqueue_script( 'fs-register.js', fsUser()->plugin_url . 'assets/js/fs-register.js', array(), '', true );
+        wp_localize_script( 'fs-register.js', 'fs_register', array(
+            'action' => 'fs_register',
+            'url'    => admin_url( 'admin-ajax.php' ),
+        ) );
         
+        return fsUser()->get_template_file__( 'register_form', array( 'atts' => $atts ), '', 'flex-login' );
     }
-    $atts = shortcode_atts(
-        array(
-            'id' => '',
-        ), $atts );
-    wp_enqueue_script( 'jquery.validate.js', fsUser()->plugin_url . 'assets/vendor/jquery.validate.js', array(), '', true );
-    wp_enqueue_script( 'fs-register.js', fsUser()->plugin_url . 'assets/js/fs-register.js', array(), '', true );
-    wp_localize_script( 'fs-register.js', 'fs_register', array(
-        'action' => 'fs_register',
-        'url'    => admin_url( 'admin-ajax.php' ),
-    ) );
-    
-    return fsUser()->get_template_file__( 'register_form', array( 'atts' => $atts ), '', 'flex-login' );
 }
-
 
 
  
