@@ -138,12 +138,12 @@
                                 <p>
                                     <input type="password" name="fs_password_re" class="required fs-full" placeholder="Confirm Password..." value="">
                                 </p>
-                                <div class="fs-action">
+                                <p class="fs-action">
                                     <button type="submit"><?php echo esc_attr( $settings['register_btn'] ) ?></button>
-                                </div>
-                                <div class="fs-singin-up">
+                                </p>
+                                <p class="fs-singin-up">
                                     <p><?php esc_html_e('Already have an account?',fsUser()->domain)?> <a href="#" class="fs-login"><?php esc_html_e('Sign in now',fsUser()->domain)?></a></p>
-                                </div>
+                                </p>
                             </form>
                             <?php if ( (isset($options['enable_facebook_checkbox']) && $options['enable_facebook_checkbox'] == 'yes') || (isset($options['enable_twitter_checkbox']) && $options['enable_twitter_checkbox'] == 'yes' )): ?>
                             <div class="fs-thirdparty fs-center">
