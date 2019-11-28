@@ -13,7 +13,8 @@
 		'style'    => 'fs-popup',
 		'type'     => 'both',
 		'num_link' => '2',
-		'active'   => 'login'
+		'active'   => 'login',
+        'el_class' => ''
 	) );
 	$can_register  = get_option( 'users_can_register' );
 	$only_login    = ( $atts['type'] == 'login' || ! $can_register ) ? true : false;
@@ -40,7 +41,7 @@
     ) );
  
 ?>
-<div class="fs-widget flex_authenticate">
+<div class="fs-widget flex_authenticate <?php echo esc_attr($atts['el_class'])?>">
     <div class="fs-link">
             <span>
                 <?php if ( ( ! $only_register && ! $only_login && $atts['type'] == 'both' && $atts['num_link'] == '1' ) ): ?>
